@@ -2,6 +2,7 @@
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8">
+		<html lang="ru">
 		<title>Animal Crossing</title>
 		<link rel="stylesheet" href="./style.css">
 		
@@ -10,8 +11,42 @@
 		<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
 		<!--<link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+		
+		<script>
+			const checkpoint = 150;
+
+			window.addEventListener("scroll", () => {
+			
+			const currentScroll = window.pageYOffset;
+			var bodyRect = document.body.getBoundingClientRect();
+
+			let kek = document.getElementsByTagName("img")
+			for(i = 1; i < kek.length; ++i)
+			{
+				var rect = kek[i].getBoundingClientRect();
+				var offset = rect.top;
+				console.log(offset);
+
+				opacity = 1 - ( (rect.top) / (window.innerHeight*4));
+
+				kek[i].style.opacity = opacity
+				kek[i].style.scale = opacity
+			}
+			
+			});		
+
+		</script>
+		
 	</head>
 	<body>
+		<?php
+        $servername = "sql208.infinityfree.com";
+        $username = "if0_36437418";
+        $password = "rZj0YkyXkR0W3nY";
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, "if0_36437418_db");
+		mysqli_set_charset($conn, 'utf8mb4');
+        ?> 
 			<div id="top">
 					
 			<header>
@@ -65,36 +100,115 @@
 					<div id="member-container" class="padding-common">
 						<div id="member" class="member_left">
 							<table>
-								<tr><td><p class="member-name inter-font">Егоров Федор</p></td></tr>
-								<tr><td><p class="member-text">Текст</p></td></tr>
+								<tr><td><p class="member-name inter-font">
+									<?php 
+									$result = mysqli_query($conn, "SELECT NAME FROM info where ID=0");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["NAME"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
+								<tr><td><p class="member-text">
+								<?php 
+									$result = mysqli_query($conn, "SELECT TEXT FROM info where ID=0");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["TEXT"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
 							</table>							
 							<img src="images/mavpa.png"/>
 						</div>
 						<div id="member" class="member_right">
 							<img src="images/quak.png"/>
 							<table>
-								<tr><td><p class="member-name inter-font">Орлова Александра</p></td></tr>
-								<tr><td><p class="member-text">Текст</p></td></tr>
+								<tr><td><p class="member-name inter-font">
+								<?php 
+									$result = mysqli_query($conn, "SELECT NAME FROM info where ID=1");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["NAME"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
+								<tr><td><p class="member-text">
+								<?php 
+									$result = mysqli_query($conn, "SELECT TEXT FROM info where ID=1");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["TEXT"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
 							</table>							
 						</div>
 						<div id="member" class="member_left">
 							<table>
-								<tr><td><p class="member-name inter-font">Анастасия Кашина</p></td></tr>
-								<tr><td><p class="member-text">Текст</p></td></tr>
+								<tr><td><p class="member-name inter-font"><?php 
+									$result = mysqli_query($conn, "SELECT NAME FROM info where ID=2");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["NAME"];
+										echo $meaning;
+										}
+									?>
+									</p></td></tr>
+								<tr><td><p class="member-text">
+								<?php 
+									$result = mysqli_query($conn, "SELECT TEXT FROM info where ID=2");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["TEXT"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
 							</table>							
 							<img src="images/los.png"/>
 						</div>
 						<div id="member" class="member_right">
 							<img src="images/slon.png"/>
 							<table>
-								<tr><td><p class="member-name inter-font">Марк Соодла</p></td></tr>
-								<tr><td><p class="member-text">Текст</p></td></tr>
+								<tr><td><p class="member-name inter-font">
+								<?php 
+									$result = mysqli_query($conn, "SELECT NAME FROM info where ID=3");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["NAME"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
+								<tr><td><p class="member-text">
+								<?php 
+									$result = mysqli_query($conn, "SELECT TEXT FROM info where ID=3");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["TEXT"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
 							</table>							
 						</div>
 						<div id="member" class="member_left">
 							<table>
-								<tr><td><p class="member-name inter-font">Кто?</p></td></tr>
-								<tr><td><p class="member-text">Текст</p></td></tr>
+								<tr><td><p class="member-name inter-font">
+								<?php 
+									$result = mysqli_query($conn, "SELECT NAME FROM info where ID=4");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["NAME"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
+								<tr><td><p class="member-text">
+								<?php 
+									$result = mysqli_query($conn, "SELECT TEXT FROM info where ID=4");
+									while( $row = mysqli_fetch_array($result) ){
+										$meaning = $row["TEXT"];
+										echo $meaning;
+										}
+									?>
+								</p></td></tr>
 							</table>							
 							<img src="images/dyatel.png"/>
 						</div>
